@@ -29,6 +29,7 @@
   "scripts": {
     "lint": "eslint src/**/*.ts --max-warnings=0",
     "test": "jest",
+    "prepare": "npm run build",
     "watch": "npm run build && npm link && nodemon",
     "launch": "tsc && homebridge -I -D",
     "build": "rimraf ./dist && tsc",
