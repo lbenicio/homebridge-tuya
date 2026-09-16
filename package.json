@@ -1,16 +1,16 @@
 {
   "name": "@homebridge-plugins/homebridge-tuya",
   "displayName": "Homebridge Tuya",
-  "version": "2.7.0",
+  "version": "2.7.0-lbenicio.1",
   "description": "Forked from 0x5e/homebridge-tuya-platform, with a focus on fixing bugs and adding new device support.",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/homebridge-plugins/homebridge-tuya"
+    "url": "https://github.com/lbenicio/homebridge-tuya"
   },
-  "homepage": "https://github.com/homebridge-plugins/homebridge-tuya#readme",
+  "homepage": "https://github.com/lbenicio/homebridge-tuya#readme",
   "bugs": {
-    "url": "https://github.com/homebridge-plugins/homebridge-tuya/issues"
+    "url": "https://github.com/lbenicio/homebridge-tuya/issues"
   },
   "funding": [
     {

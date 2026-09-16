@@ -132,6 +132,22 @@
                                         "functionBody": "return (model.options && model.options.deviceOverrides);"
                                     }
                                 },
+                                "serviceOverrides": {
+                                    "title": "Datapoint Service Overrides",
+                                    "description": "Map Boolean datapoint codes to HomeKit services: switch, outlet, or light.",
+                                    "type": "object",
+                                    "additionalProperties": {
+                                        "type": "string",
+                                        "enum": [
+                                            "switch",
+                                            "outlet",
+                                            "light"
+                                        ]
+                                    },
+                                    "condition": {
+                                        "functionBody": "return (model.options && model.options.deviceOverrides);"
+                                    }
+                                },
                                 "unbridged": {
                                     "title": "Unbridge",
                                     "description": "Would you like to make this device be an external device?",
@@ -556,6 +572,9 @@
                                 },
                                 {
                                     "key": "options.deviceOverrides[].category"
+                                },
+                                {
+                                    "key": "options.deviceOverrides[].serviceOverrides"
                                 },
                                 {
                                     "key": "options.deviceOverrides[].unbridged"

@@ -18,6 +18,7 @@ Before configuring, you may need to:
 
 - `id` - **required**: Device ID, Product ID, Scene ID, or `global`.
 - `category` - **optional**: Device category code. See [SUPPORTED_DEVICES.md](./SUPPORTED_DEVICES.md). Also you can use `hidden` to hide the device, product, or scene. **⚠️Overriding this property may lead to unexpected behaviors and exceptions, so please remove the accessory cache after making changes.**
+- `serviceOverrides` - **optional**: Map Boolean datapoint codes to HomeKit services. Supported values are `switch`, `outlet`, and `light`. This is useful for multi-channel devices where only one channel is a socket.
 - `unbridged` - **optional**: Unbridge accessories. Defaults to `false`.
 - `adaptiveLighting` - **optional**: Adaptive Lighting. Defaults to `false`. Not all light device support this feature, please use it on demand.
 - `addExtraFeaturesAutomatically` - **optional**: Automatically expose supported read/write datapoints that are not used by the standard accessory as extra HomeKit services. Boolean datapoints are exposed as switches, Enum datapoints as switches for their available values, and Integer datapoints as sliders. Defaults to `false`.

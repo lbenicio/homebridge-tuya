@@ -9,7 +9,7 @@ import TuyaCustomDeviceManager from './device/TuyaCustomDeviceManager';
 import TuyaHomeDeviceManager from './device/TuyaHomeDeviceManager';
 
 import { PLATFORM_NAME, PLUGIN_NAME } from './settings';
-import { TuyaPlatformConfig, customOptionsSchema, homeOptionsSchema } from './config';
+import { TuyaPlatformConfig, TuyaPlatformServiceType, customOptionsSchema, homeOptionsSchema } from './config';
 import AccessoryFactory from './accessory/AccessoryFactory';
 import BaseAccessory from './accessory/BaseAccessory';
 import { sanitizeName } from './util/util';
@@ -263,6 +263,10 @@ export class TuyaPlatform implements DynamicPlatformPlugin {
     }
 
     return schemaConfig;
+  }
+
+  getDeviceServiceType(device: TuyaDevice, code: string): TuyaPlatformServiceType | undefined {
+    return this.getDeviceConfig(device)?.serviceOverrides?.[code];
   }
 
   async initCustomProject() {
@@ -539,4 +543,3 @@ export class TuyaPlatform implements DynamicPlatformPlugin {
     return virtualDevice;
   }
 }
-

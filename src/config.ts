@@ -16,12 +16,15 @@ export interface TuyaPlatformDeviceSchemaConfig {
 export interface TuyaPlatformDeviceConfig {
   id: string;
   category?: string;
+  serviceOverrides?: Record<string, TuyaPlatformServiceType>;
   schema?: Array<TuyaPlatformDeviceSchemaConfig>;
   unbridged?: boolean;
   adaptiveLighting?: boolean;
   addExtraFeaturesAutomatically?: boolean;
   garageDoorUseContactSensorForState?: boolean;
 }
+
+export type TuyaPlatformServiceType = 'switch' | 'outlet' | 'light';
 
 export interface TuyaPlatformServiceInformationConfig {
   device_id: string;

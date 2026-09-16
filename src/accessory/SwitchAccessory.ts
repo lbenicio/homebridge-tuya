@@ -3,6 +3,7 @@ import BaseAccessory from './BaseAccessory';
 import { configureName } from './characteristic/Name';
 import { configureOn } from './characteristic/On';
 import { configureEnergyUsage } from './characteristic/EnergyUsage';
+import { configureOutletInUse } from './characteristic/OutletInUse';
 import { configureCurrentTemperature } from './characteristic/CurrentTemperature';
 import { configureCurrentRelativeHumidity } from './characteristic/CurrentRelativeHumidity';
 import { sanitizeName } from '../util/util';
@@ -57,11 +58,21 @@ export default class SwitchAccessory extends BaseAccessory {
     // Since switches exceptionally accept a name as a parameter, the value needs to be sanitized.
     const sanitizedName = sanitizeName(name) ?? name;
 
-    const service = this.accessory.getService(schema.code)
-      || this.accessory.addService(this.mainService(), sanitizedName, schema.code);
+    const serviceType = this.getServiceType(schema);
+    const serviceClass = this.getServiceClass(serviceType);
+    let service = this.accessory.getService(schema.code);
+    if (service && service.UUID !== serviceClass.UUID) {
+      this.accessory.removeService(service);
+      service = undefined;
+    }
+    service = service || this.accessory.addService(serviceClass, sanitizedName, schema.code);
 
     configureName(this, service, sanitizedName);
     configureOn(this, service, schema);
+
+    if (serviceType === 'outlet') {
+      configureOutletInUse(this, service, this.getSchema('cur_current'));
+    }
 
     if (schema.code === this.getSchema(...SCHEMA_CODE.ON)?.code) {
       configureEnergyUsage(
@@ -73,6 +84,22 @@ export default class SwitchAccessory extends BaseAccessory {
         this.getSchema(...SCHEMA_CODE.VOLTAGE),
         this.getSchema(...SCHEMA_CODE.TOTAL_POWER),
       );
+    }
+  }
+
+  getServiceType(schema: TuyaDeviceSchema) {
+    return this.platform.getDeviceServiceType(this.device, schema.code)
+      || (this.mainService() === this.Service.Outlet ? 'outlet' : 'switch');
+  }
+
+  getServiceClass(serviceType: 'switch' | 'outlet' | 'light') {
+    switch (serviceType) {
+      case 'outlet':
+        return this.Service.Outlet;
+      case 'light':
+        return this.Service.Lightbulb;
+      default:
+        return this.Service.Switch;
     }
   }
 
