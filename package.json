@@ -1,5 +1,5 @@
 {
-  "name": "@homebridge-plugins/homebridge-tuya",
+  "name": "@lbenicio/homebridge-tuya",
   "displayName": "Homebridge Tuya",
   "version": "2.7.0-lbenicio.1",
   "description": "Forked from 0x5e/homebridge-tuya-platform, with a focus on fixing bugs and adding new device support.",

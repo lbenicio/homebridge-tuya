@@ -1,16 +1,16 @@
-# @homebridge-plugins/homebridge-tuya
+# @lbenicio/homebridge-tuya
 
 [![verified-by-homebridge](https://img.shields.io/badge/homebridge-verified-blueviolet?color=%23491F59&style=for-the-badge&logoColor=%23FFFFFF&logo=homebridge)](https://github.com/homebridge/homebridge/wiki/Verified-Plugins)
 
-![node](https://badgen.net/npm/node/@homebridge-plugins/homebridge-tuya)
+![node](https://badgen.net/npm/node/@lbenicio/homebridge-tuya)
 <img alt="homebridge badge" src="https://img.shields.io/badge/dynamic/json?url=https%3A%2F%2Fgithub.com%2Fhomebridge-plugins%2Fhomebridge-tuya%2Fraw%2Frefs%2Fheads%2Flatest%2Fpackage.json&query=%24.engines.homebridge&label=homebridge&color=%23491F59">
 
 
 [![Sponsor](https://img.shields.io/badge/Sponsor-❤-ff69b4)](https://github.com/sponsors/tassy-h)
-[![version](https://badgen.net/npm/v/@homebridge-plugins/homebridge-tuya)](https://npmjs.com/package/@homebridge-plugins/homebridge-tuya)
-![size](https://img.shields.io/npm/unpacked-size/@homebridge-plugins/homebridge-tuya)
-[![npm-downloads](https://badgen.net/npm/dt/@homebridge-plugins/homebridge-tuya)](https://npmjs.com/package/@homebridge-plugins/homebridge-tuya)
-[![mit-license](https://badgen.net/npm/license/@homebridge-plugins/homebridge-tuya)](https://github.com/homebridge-plugins/homebridge-tuya/blob/main/LICENSE)
+[![version](https://badgen.net/npm/v/@lbenicio/homebridge-tuya)](https://npmjs.com/package/@lbenicio/homebridge-tuya)
+![size](https://img.shields.io/npm/unpacked-size/@lbenicio/homebridge-tuya)
+[![npm-downloads](https://badgen.net/npm/dt/@lbenicio/homebridge-tuya)](https://npmjs.com/package/@lbenicio/homebridge-tuya)
+[![mit-license](https://badgen.net/npm/license/@lbenicio/homebridge-tuya)](https://github.com/lbenicio/homebridge-tuya/blob/latest/LICENSE)
 [![Build and Lint](https://github.com/homebridge-plugins/homebridge-tuya/actions/workflows/build.yml/badge.svg)](https://github.com/homebridge-plugins/homebridge-tuya/actions/workflows/build.yml)
 
 
@@ -45,14 +45,14 @@ See [CHANGELOG.md](./CHANGELOG.md)
 Before using this plugin, please make sure to uninstall `homebridge-tuya-platform` first as these two plugins cannot run simultaneously. However, the configuration files are compatible, so there's no need to delete them.
 
 #### For Homebridge Web UI Users
-Go to plugin page, search for `@homebridge-plugins/homebridge-tuya` and install it.
+Install the custom fork from `https://github.com/lbenicio/homebridge-tuya`.
 
 
 #### For Homebridge Command Line Users
 
 Run the following command in the terminal:
 ```
-npm install @homebridge-plugins/homebridge-tuya
+npm install git+https://github.com/lbenicio/homebridge-tuya.git
 ```
 
 
